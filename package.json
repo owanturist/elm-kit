@@ -1,0 +1,9 @@
+{
+  "name": "elm-kit",
+  "version": "0.0.0",
+  "description": "Elm application kit",
+  "main": "index.js",
+  "author": "Anton Ovechkin <owanturist@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
+}
