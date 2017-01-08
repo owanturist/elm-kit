@@ -5,5 +5,13 @@
   "main": "index.js",
   "author": "Anton Ovechkin <owanturist@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "elm": "^0.18.0",
+    "elm-hot-loader": "^0.5.4",
+    "elm-webpack-loader": "^4.1.1",
+    "html-webpack-plugin": "^2.26.0",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
 }
