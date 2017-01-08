@@ -1,7 +1,8 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpackCombineLoaders from 'webpack-combine-loaders';
 
-module.exports = {
+export default {
     entry: path.join(__dirname, 'js', 'index.js'),
 
     output: {
@@ -23,11 +24,29 @@ module.exports = {
         noParse: /\.elm$/,
         loaders: [
             {
+                test: /.js$/,
+                include: [
+                    path.join(__dirname, 'js')
+                ],
+                loader: 'babel'
+            },
+            {
                 test: /\.elm$/,
                 include: [
                     path.join(__dirname, 'elm')
                 ],
-                loader: 'elm-hot-loader!elm-webpack-loader?verbose=true&warn=true&debug=true&pathToMake=node_modules/.bin/elm-make'
+                loader: webpackCombineLoaders([
+                    'elm-hot',
+                    {
+                        loader: 'elm-webpack',
+                        query: {
+                            verbose: true,
+                            warn: true,
+                            debug: true,
+                            pathToMake: path.join(__dirname, 'node_modules', '.bin', 'elm-make')
+                        }
+                    }
+                ])
             }
         ]
     },
