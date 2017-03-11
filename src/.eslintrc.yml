@@ -1,0 +1,10 @@
+env:
+  node: false
+  browser: true
+
+rules:
+  ### STRICT MODE ###
+
+  strict:
+    - 'error'
+    - 'never'

@@ -101,8 +101,8 @@ viewSide cube side =
                 Nothing ->
                     False
     in
-        li []
-            <| case side of
+        li [] <|
+            case side of
                 One ->
                     [ text "1"
                     , input
