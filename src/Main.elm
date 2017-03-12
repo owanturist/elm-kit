@@ -1,23 +1,12 @@
 module Main exposing (main)
 
-import Html
-    exposing
-        ( Html
-        , program
-        , div
-        , text
-        )
-
-
-type alias Model =
-    Int
+import Html exposing (Html, div, program, text, span)
+import Types.Model exposing (Model, initialModel)
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( 0
-    , Cmd.none
-    )
+    ( initialModel, Cmd.none )
 
 
 main : Program Never Model Msg
@@ -38,7 +27,7 @@ subscriptions _ =
 view : Model -> Html Msg
 view model =
     div []
-        [ text (toString model)
+        [ text "hello"
         ]
 
 

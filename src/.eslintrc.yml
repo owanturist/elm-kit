@@ -1,5 +1,6 @@
 env:
   node: false
+  amd: true
   browser: true
 
 rules:
