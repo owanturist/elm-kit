@@ -1,4 +1,4 @@
-module Entity.Core exposing (ID, Entity)
+module Entities.Core exposing (ID, Entity)
 
 
 type alias ID =

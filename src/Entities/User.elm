@@ -1,6 +1,6 @@
-module Entity.User exposing (User)
+module Entities.User exposing (User)
 
-import Entity.Core exposing (Entity)
+import Entities.Core exposing (Entity)
 
 
 type alias User =

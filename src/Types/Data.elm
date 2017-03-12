@@ -1,8 +1,8 @@
 module Types.Data exposing (Data, initialData)
 
 import Dict exposing (Dict)
-import Entity.Core exposing (ID)
-import Entity.User exposing (User)
+import Entities.Core exposing (ID)
+import Entities.User exposing (User)
 
 
 type alias Data =
