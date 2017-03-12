@@ -3,7 +3,7 @@ module Main exposing (..)
 import Html
     exposing
         ( Html
-        , beginnerProgram
+        , program
         , div
         , ul
         , li
@@ -50,21 +50,29 @@ type Side
     | Pirates
 
 
-model : Model
-model =
-    [ Cube Result [ One, Two, Three, Four, Five, Six ] Nothing
-    , Cube EventResult [ One, Two, Three, Four, Five, Six ] Nothing
-    , Cube Event [ Green, Blue, Yellow, Pirates ] Nothing
-    ]
+init : ( Model, Cmd Msg )
+init =
+    ( [ Cube Result [ One, Two, Three, Four, Five, Six ] Nothing
+      , Cube EventResult [ One, Two, Three, Four, Five, Six ] Nothing
+      , Cube Event [ Green, Blue, Yellow, Pirates ] Nothing
+      ]
+    , Cmd.none
+    )
 
 
 main : Program Never Model Msg
 main =
-    beginnerProgram
-        { model = model
+    program
+        { init = init
         , view = view
         , update = update
+        , subscriptions = subscriptions
         }
+
+
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    Sub.none
 
 
 view : Model -> Html Msg
@@ -218,7 +226,7 @@ type Msg
     = Select Role Side Bool
 
 
-update : Msg -> Model -> Model
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Select role side checked ->
@@ -229,4 +237,4 @@ update msg model =
                     else
                         cube
             in
-                List.map selectCube model
+                ( List.map selectCube model, Cmd.none )
